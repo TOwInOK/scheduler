@@ -1,0 +1,20 @@
+(
+    cells: [
+        (
+            subject: Practice(Sport),
+            place: "СПЗ",
+            day: Regular(First),
+            para: Four,
+            odd: true,
+            group_allowed: All,
+        ),
+        (
+            subject: Practice(Sport),
+            place: "СПЗ",
+            day: Regular(First),
+            para: Four,
+            odd: false,
+            group_allowed: All,
+        ),
+    ],
+)

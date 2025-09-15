@@ -1,0 +1,40 @@
+(
+    cells: [
+    // Вторник
+        (
+            subject: Practice(Project),
+            place: "НК-323",
+            day: Regular(Second),
+            para: Third,
+            odd: true,
+            group_allowed: First(All),
+        ),
+        (
+            subject: Practice(Project),
+            place: "НК-323",
+            day: Regular(Second),
+            para: Third,
+            odd: false,
+            group_allowed: First(All),
+        ),
+        // Там лекция будет 04.11
+    // Четверг
+        (
+            subject: Practice(Project),
+            place: "НК-328",
+            day: Regular(Four),
+            para: Four,
+            odd: false,
+            group_allowed: Second(All),
+        ),
+    // Пятница
+        (
+            subject: Practice(Project),
+            place: "НК-328",
+            day: Regular(Five),
+            para: Second,
+            odd: true,
+            group_allowed: Second(All),
+        ),
+    ],
+)

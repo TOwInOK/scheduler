@@ -1,0 +1,55 @@
+(
+    cells: [
+    // Понедельник
+        (
+            subject: Lection(Algebra),
+            place: "Н-130",
+            day: Regular(First),
+            para: Third,
+            odd: true,
+            group_allowed: All,
+        ),
+        (
+            subject: Lection(Algebra),
+            place: "Н-130",
+            day: Regular(First),
+            para: Third,
+            odd: false,
+            group_allowed: All,
+        ),
+    // Вторник
+        (
+            subject: Lection(Algebra),
+            place: "Н-307",
+            day: Regular(Second),
+            para: Third,
+            odd: true,
+            group_allowed: Second(All),
+        ),
+        (
+            subject: Lection(Algebra),
+            place: "Н-307",
+            day: Regular(Second),
+            para: Second,
+            odd: false,
+            group_allowed: Second(All),
+        ),
+    // Пятница
+        (
+            subject: Lection(Algebra),
+            place: "Н-317",
+            day: Regular(Five),
+            para: Second,
+            odd: true,
+            group_allowed: First(All),
+        ),
+        (
+            subject: Lection(Algebra),
+            place: "Н-303",
+            day: Regular(Five),
+            para: Second,
+            odd: false,
+            group_allowed: First(All),
+        ),
+    ],
+)

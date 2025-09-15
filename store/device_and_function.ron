@@ -1,0 +1,78 @@
+(
+    cells: [
+    // Среда
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-303",
+            day: Regular(Third),
+            para: Four,
+            odd: true,
+            group_allowed: First(B),
+        ),
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-303",
+            day: Regular(Third),
+            para: Five,
+            odd: true,
+            group_allowed: First(B),
+        ),
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-303",
+            day: Regular(Third),
+            para: Four,
+            odd: false,
+            group_allowed: First(A),
+        ),
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-303",
+            day: Regular(Third),
+            para: Five,
+            odd: false,
+            group_allowed: First(A),
+        ),
+    // Четверг
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-307",
+            day: Regular(Four),
+            para: First,
+            odd: true,
+            group_allowed: Second(A),
+        ),
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-307",
+            day: Regular(Four),
+            para: Second,
+            odd: true,
+            group_allowed: Second(A),
+        ),
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-307",
+            day: Regular(Four),
+            para: First,
+            odd: false,
+            group_allowed: Second(B),
+        ),
+        (
+            subject: Practice(DeviceAndFunction),
+            place: "НК-307",
+            day: Regular(Four),
+            para: Second,
+            odd: false,
+            group_allowed: Second(B),
+        ),
+        (
+            subject: Lection(DeviceAndFunction),
+            place: "НК-424",
+            day: Regular(Four),
+            para: Third,
+            odd: false,
+            group_allowed: All,
+        ),
+    ],
+)

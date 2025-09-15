@@ -1,0 +1,55 @@
+(
+// Это общий стор
+    cells: [
+    // Клетка
+        (
+            // Предмет
+            // практика - Practice
+            // лекция - Lecture
+            // Доступные предметы:
+            // English,
+            // History,
+            // Algebra,
+            // MathAnalyz,
+            // OfficeAndTechnology,
+            // Sport,
+            // OSBasics,
+            // DeviceAndFunction,
+            // Biologia,
+            // Programming,
+            // Project,
+            // Curator,
+            subject: Practice(English),
+            // Где будет проходить (любая строка)
+            place: "ВСТ-104",
+            // Regular || Once и день по счёту с 1 по 6 (понедельник -> суббота)
+            //
+            // Доступные значения
+            // First,
+            // Second,
+            // Third,
+            // Four,
+            // Five,
+            // Six,
+            day: Regular(Four),
+            // Пара по счёту (Первая - Седьмая)
+            //
+            // Доступные значения
+            // First,
+            // Second,
+            // Third,
+            // Four,
+            // Five,
+            // Six,
+            // Seven,
+            para: Five,
+            // Нечётная ли неделя для клетки.
+            odd: true,
+            // Для какой группы:
+            // First(A) || First(B) || First(All)
+            // Second(A) || Second(B) || Second(All)
+            // All
+            group_allowed: Second(A),
+        ),
+    ],
+)

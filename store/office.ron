@@ -1,0 +1,84 @@
+(
+    cells: [
+    // Понедельник
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-301",
+            day: Regular(First),
+            para: First,
+            odd: true,
+            group_allowed: Second(B),
+        ),
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-307",
+            day: Regular(First),
+            para: First,
+            odd: false,
+            group_allowed: Second(B),
+        ),
+    // Вторник
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-307",
+            day: Regular(Second),
+            para: Four,
+            odd: false,
+            group_allowed: First(B),
+        ),
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-307",
+            day: Regular(Second),
+            para: Five,
+            odd: false,
+            group_allowed: First(B),
+        ),
+        // Та что-то для 1A, но я хз что там за число. Месяц 11 понятно, а день...
+    // Среда
+        // Та что-то для 1A, но я хз что там за число. Месяц 11 понятно, а день...
+    // Четверг
+        (
+            subject: Lection(OfficeAndTechnology),
+            place: "A-3",
+            day: Regular(Four),
+            para: Third,
+            odd: true,
+            group_allowed: All,
+        ),
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-303",
+            day: Regular(Four),
+            para: Five,
+            odd: false,
+            group_allowed: Second(B),
+        ),
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-303",
+            day: Regular(Four),
+            para: Six,
+            odd: false,
+            group_allowed: Second(B),
+        ),
+    // Суббота
+    // **note**: 2 эти пары нужно убрать 02.11
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-307",
+            day: Regular(Six),
+            para: First,
+            odd: false,
+            group_allowed: First(A),
+        ),
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-307",
+            day: Regular(Six),
+            para: Second,
+            odd: false,
+            group_allowed: First(A),
+        ),
+    ],
+)

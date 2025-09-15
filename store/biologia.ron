@@ -1,0 +1,71 @@
+(
+    cells: [
+    // Понедельник
+        (
+            subject: Practice(Biologia),
+            place: "НК-246",
+            day: Regular(Second),
+            para: First,
+            odd: true,
+            group_allowed: Second(All),
+        ),
+        (
+            subject: Practice(Biologia),
+            place: "НК-246",
+            day: Regular(Second),
+            para: Second,
+            odd: true,
+            group_allowed: Second(All),
+        ),
+        (
+            subject: Practice(Biologia),
+            place: "НК-246",
+            day: Regular(Second),
+            para: First,
+            odd: false,
+            group_allowed: Second(All),
+        ),
+    // Среда
+        (
+            subject: Lection(Biologia),
+            place: "НК-424",
+            day: Regular(Third),
+            para: Third,
+            odd: false,
+            group_allowed: All,
+        ),
+        (
+            subject: Lection(Biologia),
+            place: "НК-424",
+            day: Regular(Third),
+            para: Third,
+            odd: true,
+            group_allowed: All,
+        ),
+    // Пятница
+        (
+            subject: Practice(Biologia),
+            place: "НК-246",
+            day: Regular(Five),
+            para: Third,
+            odd: true,
+            group_allowed: First(All),
+        ),
+        (
+            subject: Practice(Biologia),
+            place: "НК-246",
+            day: Regular(Five),
+            para: Four,
+            odd: true,
+            group_allowed: First(All),
+        ),
+        (
+            subject: Practice(Biologia),
+            place: "НК-246",
+            day: Regular(Five),
+            para: Third,
+            odd: false,
+            group_allowed: First(All),
+        ),
+    ],
+)

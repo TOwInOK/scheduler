@@ -1,0 +1,126 @@
+(
+    cells: [
+    // Понедельник
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(First),
+            para: First,
+            odd: true,
+            group_allowed: First(A),
+        ),
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(First),
+            para: First,
+            odd: false,
+            group_allowed: First(B),
+        ),
+    // Вторник
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(Second),
+            para: First,
+            odd: true,
+            group_allowed: First(B),
+        ),
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(Second),
+            para: First,
+            odd: false,
+            group_allowed: First(A),
+        ),
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(Second),
+            para: Second,
+            odd: true,
+            group_allowed: First(B),
+        ),
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(Second),
+            para: Second,
+            odd: false,
+            group_allowed: First(A),
+        ),
+    // Среда
+        // до 18.10
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(Third),
+            para: First,
+            odd: true,
+            group_allowed: Second(B),
+        ),
+        // до 18.10
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(Third),
+            para: First,
+            odd: false,
+            group_allowed: Second(B),
+        ),
+        (
+            subject: Lection(Programming),
+            place: "НК-424",
+            day: Regular(Third),
+            para: Second,
+            odd: true,
+            group_allowed: All,
+        ),
+        (
+            subject: Lection(Programming),
+            place: "НК-424",
+            day: Regular(Third),
+            para: Second,
+            odd: false,
+            group_allowed: All,
+        ),
+        // НК-303 для 2Б с 20.10
+        // НК-303 для 2Б с 20.10
+        // (да 2 пары)
+    // Четверг
+        (
+            subject: Practice(Programming),
+            place: "НК-303",
+            day: Regular(Four),
+            para: First,
+            odd: true,
+            group_allowed: Second(B),
+        ),
+    // Пятница
+        (
+            subject: Practice(Programming),
+            place: "НК-301",
+            day: Regular(Five),
+            para: First,
+            odd: true,
+            group_allowed: Second(A),
+        ),
+        (
+            subject: Practice(Programming),
+            place: "НК-301",
+            day: Regular(Five),
+            para: Second,
+            odd: true,
+            group_allowed: Second(A),
+        ),
+        (
+            subject: Practice(Programming),
+            place: "НК-301",
+            day: Regular(Five),
+            para: Second,
+            odd: false,
+            group_allowed: Second(A),
+        ),
+    ],
+)
