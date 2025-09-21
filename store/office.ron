@@ -17,6 +17,24 @@
             odd: false,
             group_allowed: Second(B),
         ),
+        // До 02.11
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-419",
+            day: Regular(First),
+            para: Six,
+            odd: false,
+            group_allowed: First(A),
+        ),
+        // До 02.11
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-419",
+            day: Regular(First),
+            para: Six,
+            odd: true,
+            group_allowed: First(A),
+        ),
     // Вторник
         (
             subject: Practice(OfficeAndTechnology),
@@ -36,7 +54,33 @@
         ),
         // Та что-то для 1A, но я хз что там за число. Месяц 11 понятно, а день...
     // Среда
-        // Та что-то для 1A, но я хз что там за число. Месяц 11 понятно, а день...
+        // до 18.10
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-302",
+            day: Regular(Third),
+            para: First,
+            odd: true,
+            group_allowed: Second(A),
+        ),
+        // c 27.10
+        // (
+        //     subject: Practice(OfficeAndTechnology),
+        //     place: "НК-302",
+        //     day: Regular(Third),
+        //     para: Six,
+        //     odd: true,
+        //     group_allowed: Second(A),
+        // ),
+        // c 10.11
+        // (
+        //     subject: Practice(OfficeAndTechnology),
+        //     place: "НК-302",
+        //     day: Regular(Third),
+        //     para: Six,
+        //     odd: true,
+        //     group_allowed: First(A),
+        // ),
     // Четверг
         (
             subject: Lection(OfficeAndTechnology),
@@ -50,35 +94,10 @@
             subject: Practice(OfficeAndTechnology),
             place: "НК-303",
             day: Regular(Four),
-            para: Five,
-            odd: false,
-            group_allowed: Second(B),
-        ),
-        (
-            subject: Practice(OfficeAndTechnology),
-            place: "НК-303",
-            day: Regular(Four),
             para: Six,
             odd: false,
-            group_allowed: Second(B),
+            group_allowed: Second(A),
         ),
     // Суббота
-    // **note**: 2 эти пары нужно убрать 02.11
-        (
-            subject: Practice(OfficeAndTechnology),
-            place: "НК-307",
-            day: Regular(Six),
-            para: First,
-            odd: false,
-            group_allowed: First(A),
-        ),
-        (
-            subject: Practice(OfficeAndTechnology),
-            place: "НК-307",
-            day: Regular(Six),
-            para: Second,
-            odd: false,
-            group_allowed: First(A),
-        ),
     ],
 )
