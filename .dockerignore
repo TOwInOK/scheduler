@@ -1,0 +1,9 @@
+target/
+.git/
+Dockerfile
+.dockerignore
+debug/
+.env
+Cargo.lock
+example.ron
+.env.example

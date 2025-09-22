@@ -6,7 +6,6 @@ edition = "2024"
 
 [dependencies]
 dotenvy = "0.15.7"
-dotenvy_macro = "0.15.7"
 frankenstein = { version = "0.44.0", features = ["client-reqwest"] }
 ron = "0.11.0"
 serde = { version = "1.0.219", features = ["derive"] }

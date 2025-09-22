@@ -6,7 +6,6 @@ pub mod telegram;
 
 use std::{collections::HashMap, sync::Arc};
 
-use dotenvy_macro::dotenv;
 use frankenstein::{AsyncTelegramApi, client_reqwest::Bot, methods::GetUpdatesParams};
 use parser::load_cells_store;
 use telegram::{State, update::on_update};
@@ -28,9 +27,10 @@ fn init_logger(level: Level) {
 #[tokio::main]
 async fn main() {
     init_logger(Level::INFO);
-    dotenvy::dotenv().unwrap();
-    let token = dotenv!("BOT_TOKEN");
-    let bot = Bot::new(token);
+    dotenvy::dotenv().ok();
+    let token = std::env::var("BOT_TOKEN")
+        .expect("BOT_TOKEN must be set either in a .env file or as an environment variable");
+    let bot = Bot::new(&token);
     let cells = load_cells_store().await.expect("fail to load store");
     let state = Arc::new(State {
         users: Arc::new(Mutex::new(HashMap::new())),
