@@ -1,0 +1,9 @@
+name: Scheduler telegram bot
+
+services:
+  scheduler:
+    image: ghcr.io/towinok/scheduler:latest
+    container_name: scheduler_bot
+    environment:
+      - BOT_TOKEN="Your token here" # ${BOT_TOKEN} for environment variable
+    restart: on-failure

@@ -1,8 +1,11 @@
 
 [package]
 name = "sheduller"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
+authors = ["TOwInOK <60252419+TOwInOK@users.noreply.github.com>"]
+repository = "https://github.com/TOwInOK/scheduler"
+license = "MIT"
 
 [dependencies]
 dotenvy = "0.15.7"
