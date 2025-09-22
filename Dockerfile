@@ -13,7 +13,7 @@ FROM clux/muslrust:stable AS builder
 COPY . .
 COPY --from=cacher /volume/target target
 # COPY --from=cacher /root/.cargo /root/.cargo
-RUN cargo build --bin run --release --target x86_64-unknown-linux-musl
+RUN cargo build --release --target x86_64-unknown-linux-musl
 
 FROM gcr.io/distroless/static:nonroot
 # FROM gcr.io/distroless/cc-debian12:nonroot
