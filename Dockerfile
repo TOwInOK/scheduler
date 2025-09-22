@@ -24,10 +24,9 @@ ARG BOT_TOKEN
 ENV BOT_TOKEN=${BOT_TOKEN}
 ENTRYPOINT ["/app/sheduller"]
 
-LABEL maintainer="TOwInOK <60252419+TOwInOK@users.noreply.github.com>"
-LABEL version="1.0.0"
-LABEL description="Telegram bot for scheduling lessons"
-LABEL license="MIT"
-LABEL source="https://github.com/TOwInOK/scheduler"
-LABEL support="https://github.com/TOwInOK/scheduler/issues"
-LABEL documentation="https://github.com/TOwInOK/scheduler/blob/main/README.md"
+LABEL org.opencontainers.maintainer="TOwInOK <60252419+TOwInOK@users.noreply.github.com>"
+LABEL org.opencontainers.version="1.0.0"
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.source="https://github.com/TOwInOK/scheduler"
+LABEL org.opencontainers.image.description="Telegram bot for scheduling lessons"
+LABEL org.opencontainers.image.documentation="https://github.com/TOwInOK/scheduler/blob/main/README.md"
