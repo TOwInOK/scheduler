@@ -1,4 +1,4 @@
-# Sheduller Telegram Bot
+# Scheduler Telegram Bot
 
 This bot is designed to display schedules. It provides a user-friendly interface to select your group and view the schedule for today, tomorrow, yesterday, or the entire week.
 
@@ -32,49 +32,89 @@ To run the bot, you will need to have either **Docker** or **Podman** installed 
     ```
     Replace `YOUR_SECRET_BOT_TOKEN` with the actual token you obtained from BotFather.
 
-### 2. Running with Docker Compose
+### 2. Pulling the Pre-built Image
 
-This is the recommended method as it simplifies the build and run process.
+You can pull the latest pre-built image directly from GitHub Container Registry (GHCR):
 
-1.  **Build and start the container:**
+```bash
+# For Docker:
+docker pull ghcr.io/towinok/scheduler:latest
+
+# For Podman:
+podman pull ghcr.io/towinok/scheduler:latest
+```
+
+### 3. Running with Docker Compose (Recommended)
+
+This is the most recommended way to manage the bot, simplifying the build/pull and run process.
+
+1.  **Update `docker-compose.yml` to use the pre-built image:**
+    Modify your `docker-compose.yml` to specify the `image` instead of `build` if you prefer to use the pre-built image.
+    ```/Users/towinok/Documents/rustdir/sheduller/docker-compose.yml
+    version: '3.8'
+
+    services:
+      scheduler:
+        image: ghcr.io/towinok/scheduler:latest # Specify the image to pull
+        container_name: scheduler_bot
+        environment:
+          - BOT_TOKEN=${BOT_TOKEN}
+        restart: on-failure
+    ```
+    Then, run:
+    ```bash
+    docker compose up -d
+    ```
+
+2.  **To build the image locally (from source) with Docker Compose:**
+    Ensure your `docker-compose.yml` specifies `build: .` (as provided initially).
     ```bash
     docker compose up --build -d
     ```
-    This command will build the image (if not already built or if there are changes) and run the container in detached mode.
+    This command will build the image (if not already created or if there are changes) and run the container in detached mode.
 
-2.  **Stop the container:**
+3.  **Stop the container:**
     ```bash
     docker compose down
     ```
 
-### 3. Running with Docker or Podman (Manually)
+### 4. Running with Docker or Podman (Manually)
 
 If you prefer to manage images and containers manually:
 
-1.  **Build the Docker/Podman image:**
+1.  **Run the container using the pre-built image:**
     ```bash
     # For Docker:
-    docker build . -t sheduller_bot:latest
+    docker run -d --name scheduler_bot -e BOT_TOKEN="${BOT_TOKEN}" ghcr.io/towinok/scheduler:latest
 
     # For Podman:
-    podman build . -t sheduller_bot:latest
+    podman run -d --name scheduler_bot -e BOT_TOKEN="${BOT_TOKEN}" ghcr.io/towinok/scheduler:latest
+    ```
+    **Important:** Ensure that the `BOT_TOKEN` environment variable is available in your current shell before executing the `run` command (e.g., `export BOT_TOKEN="YOUR_SECRET_BOT_TOKEN"` or use `$(cat .env | grep BOT_TOKEN | cut -d '=' -f2)`).
+
+2.  **To build and run the image locally (from source):**
+    First, build the image:
+    ```bash
+    # For Docker:
+    docker build . -t scheduler_bot:latest
+
+    # For Podman:
+    podman build . -t scheduler_bot:latest
+    ```
+    Then, run it:
+    ```bash
+    # For Docker:
+    docker run -d --name scheduler_bot -e BOT_TOKEN="${BOT_TOKEN}" scheduler_bot:latest
+
+    # For Podman:
+    podman run -d --name scheduler_bot -e BOT_TOKEN="${BOT_TOKEN}" scheduler_bot:latest
     ```
 
-2.  **Run the container:**
+3.  **Stopping the container:**
     ```bash
     # For Docker:
-    docker run -d --name sheduller_instance -e BOT_TOKEN="${BOT_TOKEN}" sheduller_bot:latest
+    docker stop scheduler_bot
 
     # For Podman:
-    podman run -d --name sheduller_instance -e BOT_TOKEN="${BOT_TOKEN}" sheduller_bot:latest
-    ```
-    **Important:** Ensure that the `BOT_TOKEN` environment variable is available in your current shell before running the `run` command (e.g., `export BOT_TOKEN="YOUR_SECRET_BOT_TOKEN"` or use `$(cat .env | grep BOT_TOKEN | cut -d '=' -f2)`).
-
-3.  **Stop the container:**
-    ```bash
-    # For Docker:
-    docker stop sheduller_instance
-
-    # For Podman:
-    podman stop sheduller_instance
+    podman stop scheduler_bot
     ```
