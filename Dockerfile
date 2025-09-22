@@ -20,6 +20,8 @@ FROM gcr.io/distroless/static:nonroot
 WORKDIR /app
 COPY --from=builder --chown=nonroot:nonroot /volume/target/x86_64-unknown-linux-musl/release/scheduler /app/scheduler
 COPY --from=builder --chown=nonroot:nonroot /volume/store /app/store
+ARG BOT_TOKEN
+ENV BOT_TOKEN=${BOT_TOKEN}
 ENTRYPOINT ["/app/scheduler"]
 
 LABEL org.opencontainers.maintainer="TOwInOK <60252419+TOwInOK@users.noreply.github.com>"
