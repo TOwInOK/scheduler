@@ -1,8 +1,12 @@
+#![forbid(unsafe_code)]
+
 mod cells;
+pub mod database;
 pub mod dicts;
 pub mod error;
 pub mod parser;
 pub mod telegram;
+pub mod user;
 
 use std::{collections::HashMap, sync::Arc};
 
