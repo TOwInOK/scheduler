@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-use sqlx::{Pool, Sqlite, SqlitePool, sqlite::SqliteConnectOptions};
+use sqlx::{Pool, Sqlite, SqlitePool, query, sqlite::SqliteConnectOptions};
 
 use crate::error::Result;
 
@@ -11,10 +11,10 @@ pub async fn execute_pool() -> Result<Pool<Sqlite>> {
 }
 
 pub async fn create_default_if_not_exists(pool: Pool<Sqlite>) -> Result<()> {
-    sqlx::query!(
+    query!(
         "CREATE TABLE IF NOT EXISTS users (
                 id   INTEGER PRIMARY KEY,
-                selected_group TEXT NOT NULL
+                selected_group INTEGER NOT NULL
             )",
     )
     .execute(&pool)

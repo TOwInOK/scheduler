@@ -9,6 +9,48 @@ pub enum Groups {
     First(SubGroup),
     Second(SubGroup),
 }
+// Only for SQL
+impl From<Groups> for i64 {
+    fn from(val: Groups) -> Self {
+        match val {
+            Groups::First(sub_group) => match sub_group {
+                SubGroup::A => 1,
+                SubGroup::B => 2,
+            },
+            Groups::Second(sub_group) => match sub_group {
+                SubGroup::A => 3,
+                SubGroup::B => 4,
+            },
+        }
+    }
+}
+
+impl From<i64> for Groups {
+    fn from(val: i64) -> Self {
+        match val {
+            1 => Groups::First(SubGroup::A),
+            2 => Groups::First(SubGroup::B),
+            3 => Groups::Second(SubGroup::A),
+            4 => Groups::Second(SubGroup::B),
+            _ => panic!("Invalid value for Groups"),
+        }
+    }
+}
+
+impl From<Groups> for u8 {
+    fn from(val: Groups) -> Self {
+        match val {
+            Groups::First(sub_group) => match sub_group {
+                SubGroup::A => 1,
+                SubGroup::B => 2,
+            },
+            Groups::Second(sub_group) => match sub_group {
+                SubGroup::A => 3,
+                SubGroup::B => 4,
+            },
+        }
+    }
+}
 
 impl Display for Groups {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
