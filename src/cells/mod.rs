@@ -22,9 +22,9 @@ impl<'a> Cells<'a> {
             cells: self
                 .cells
                 .iter()
-                .copied()
+                .cloned() // TODO: fix it, it's realy mess
                 .filter(|cell| cell.day == day)
-                .filter(|cell| cell.group_allowed == group)
+                .filter(|cell| cell.groups_allowed.contains(&group))
                 .filter(|cell| cell.subject.show(date))
                 .filter(|cell| cell.odd == is_academic_week_odd(date))
                 .collect::<Vec<Cell<'a>>>(),

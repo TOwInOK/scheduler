@@ -7,7 +7,7 @@
             day: Regular(First),
             para: Third,
             odd: true,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         (
             subject: Lection(Algebra),
@@ -15,7 +15,7 @@
             day: Regular(First),
             para: Third,
             odd: false,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
     // Вторник
         (
@@ -24,7 +24,7 @@
             day: Regular(Second),
             para: Third,
             odd: true,
-            group_allowed: Second(All),
+            groups_allowed: [Second(A), Second(B)],
         ),
         (
             subject: Lection(Algebra),
@@ -32,7 +32,7 @@
             day: Regular(Second),
             para: Second,
             odd: false,
-            group_allowed: Second(All),
+            groups_allowed: [Second(A), Second(B)],
         ),
     // Пятница
         (
@@ -41,7 +41,7 @@
             day: Regular(Five),
             para: Second,
             odd: true,
-            group_allowed: First(All),
+            groups_allowed: [First(A), First(B)],
         ),
         (
             subject: Lection(Algebra),
@@ -49,7 +49,7 @@
             day: Regular(Five),
             para: Second,
             odd: false,
-            group_allowed: First(All),
+            groups_allowed: [First(A), First(B)],
         ),
     ],
 )

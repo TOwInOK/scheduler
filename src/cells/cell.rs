@@ -6,16 +6,15 @@ pub mod subject;
 pub mod subject_type;
 pub mod time;
 
-use std::fmt::{self};
-
 use ::time::format_description;
+use arrayvec::ArrayVec;
 use groups::Groups;
 use para::Para;
 use serde::{Deserialize, Serialize};
 use subject_type::SubjectType;
 use time::TimeCellRepiter;
 
-#[derive(Debug, Clone, Serialize, Deserialize, Copy)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 /// Representation of a cell in the schedule.
 pub struct Cell<'a> {
     pub subject: SubjectType,
@@ -23,11 +22,11 @@ pub struct Cell<'a> {
     pub day: TimeCellRepiter,
     pub para: Para,
     pub odd: bool,
-    pub group_allowed: Groups,
+    pub groups_allowed: ArrayVec<Groups, 4>,
 }
 
-impl fmt::Display for Cell<'_> {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+impl std::fmt::Display for Cell<'_> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         // Форматируем время
         let hm = format_description::parse("[hour]:[minute]").unwrap();
         let m = format_description::parse("[minute]").unwrap();

@@ -7,7 +7,7 @@
             day: Regular(Second),
             para: Third,
             odd: true,
-            group_allowed: First(All),
+            groups_allowed: [First(A), First(B)],
         ),
         (
             subject: Practice(Project),
@@ -15,7 +15,7 @@
             day: Regular(Second),
             para: Third,
             odd: false,
-            group_allowed: First(All),
+            groups_allowed: [First(A), First(B)],
         ),
         // Там лекция будет 04.11
     // Четверг
@@ -25,7 +25,7 @@
             day: Regular(Four),
             para: Four,
             odd: false,
-            group_allowed: Second(All),
+            groups_allowed: [Second(A), Second(B)],
         ),
     // Пятница
         (
@@ -34,7 +34,7 @@
             day: Regular(Five),
             para: Second,
             odd: true,
-            group_allowed: Second(All),
+            groups_allowed: [Second(A), Second(B)],
         ),
     ],
 )

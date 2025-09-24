@@ -15,6 +15,8 @@ use parser::load_cells_store;
 use telegram::{State, update::on_update};
 use tokio::sync::Mutex;
 use tracing::Level;
+
+use crate::database::execute_pool;
 fn init_logger(level: Level) {
     use tracing_subscriber::FmtSubscriber;
 
@@ -32,6 +34,7 @@ fn init_logger(level: Level) {
 async fn main() {
     init_logger(Level::INFO);
     dotenvy::dotenv().ok();
+    execute_pool().await.unwrap();
     let token = std::env::var("BOT_TOKEN")
         .expect("BOT_TOKEN must be set either in a .env file or as an environment variable");
     let bot = Bot::new(&token);

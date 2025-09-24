@@ -46,10 +46,10 @@
             // Нечётная ли неделя для клетки.
             odd: true,
             // Для какой группы:
-            // First(A) || First(B) || First(All)
-            // Second(A) || Second(B) || Second(All)
-            // All
-            group_allowed: Second(A),
+            // First(A) || First(B)
+            // Second(A) || Second(B)
+            //
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
     ],
 )

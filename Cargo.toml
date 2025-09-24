@@ -8,6 +8,7 @@ repository = "https://github.com/TOwInOK/scheduler"
 license = "MIT"
 
 [dependencies]
+arrayvec = { version = "0.7.6", features = ["serde"] }
 dotenvy = "0.15.7"
 frankenstein = { version = "0.44.0", features = ["client-reqwest"] }
 ron = "0.11.0"

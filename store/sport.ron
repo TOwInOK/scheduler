@@ -6,7 +6,7 @@
             day: Regular(First),
             para: Four,
             odd: true,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         (
             subject: Practice(Sport),
@@ -14,7 +14,7 @@
             day: Regular(First),
             para: Four,
             odd: false,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
     ],
 )
