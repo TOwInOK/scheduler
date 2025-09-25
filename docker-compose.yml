@@ -6,4 +6,6 @@ services:
     container_name: scheduler_bot
     environment:
       - BOT_TOKEN="Your token here" # ${BOT_TOKEN} for environment variable
+    volumes:
+      - ./data/scheduler_store.db:/scheduler_store.db # This is the path to the database file
     restart: on-failure

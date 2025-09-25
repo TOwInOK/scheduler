@@ -8,12 +8,11 @@ pub mod parser;
 pub mod telegram;
 pub mod user;
 
-use std::{collections::HashMap, sync::Arc};
+use std::sync::Arc;
 
 use frankenstein::{AsyncTelegramApi, client_reqwest::Bot, methods::GetUpdatesParams};
 use parser::load_cells_store;
 use telegram::{State, update::on_update};
-use tokio::sync::Mutex;
 use tracing::Level;
 
 use crate::database::{create_default_if_not_exists, execute_pool};
@@ -42,7 +41,6 @@ async fn main() {
     let bot = Bot::new(&token);
     let cells = load_cells_store().await.expect("fail to load store");
     let state = Arc::new(State {
-        users: Arc::new(Mutex::new(HashMap::new())),
         cells: Arc::new(cells),
         pool,
     });
