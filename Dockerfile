@@ -22,6 +22,7 @@ COPY --from=builder --chown=nonroot:nonroot /volume/target/x86_64-unknown-linux-
 COPY --from=builder --chown=nonroot:nonroot /volume/store /app/store
 ARG BOT_TOKEN
 ENV BOT_TOKEN=${BOT_TOKEN}
+ENV SQLX_OFFLINE=true
 ENTRYPOINT ["/app/scheduler"]
 
 LABEL org.opencontainers.maintainer="TOwInOK <60252419+TOwInOK@users.noreply.github.com>"

@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "CREATE TABLE IF NOT EXISTS users (\n                id   INTEGER PRIMARY KEY,\n                selected_group INTEGER NOT NULL\n            )",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 0
+    },
+    "nullable": []
+  },
+  "hash": "1b83edf7543ae48f8b67de5a0d4800cf675364c7342a2c83c77b07923fb9598e"
+}
