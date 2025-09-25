@@ -8,6 +8,8 @@ pub enum Error {
     RonSpanned(#[from] ron::error::SpannedError),
     #[error("ron error: {0}")]
     Ron(#[from] ron::error::Error),
+    #[error("sql error: {0}")]
+    SQL(#[from] sqlx::Error),
 }
 
 pub type Result<T> = std::result::Result<T, Error>;

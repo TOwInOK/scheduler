@@ -7,7 +7,7 @@
             day: Regular(First),
             para: Second,
             odd: true,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         (
             subject: Lection(History),
@@ -15,7 +15,7 @@
             day: Regular(First),
             para: Second,
             odd: false,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         (
             subject: Lection(History),
@@ -23,7 +23,7 @@
             day: Regular(First),
             para: Four,
             odd: false,
-            group_allowed: First(All),
+            groups_allowed: [First(A), First(B)],
         ),
         (
             subject: Lection(History),
@@ -31,7 +31,7 @@
             day: Regular(First),
             para: Four,
             odd: true,
-            group_allowed: First(All),
+            groups_allowed: [First(A), First(B)],
         ),
         // Четверг
         (
@@ -40,7 +40,7 @@
             day: Regular(Four),
             para: Four,
             odd: true,
-            group_allowed: Second(All),
+            groups_allowed: [Second(A), Second(B)],
         ),
         (
             subject: Lection(History),
@@ -48,7 +48,7 @@
             day: Regular(Four),
             para: Four,
             odd: false,
-            group_allowed: Second(All),
+            groups_allowed: [Second(A), Second(B)],
         ),
         (
             subject: Lection(History),
@@ -56,7 +56,7 @@
             day: Regular(Four),
             para: Five,
             odd: true,
-            group_allowed: Second(All),
+            groups_allowed: [Second(A), Second(B)],
         ),
         // Пятница
         (
@@ -65,7 +65,7 @@
             day: Regular(Five),
             para: Four,
             odd: false,
-            group_allowed: First(All),
+            groups_allowed: [First(A), First(B)],
         ),
 
     ],

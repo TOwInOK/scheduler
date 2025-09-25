@@ -1,25 +1,11 @@
 use std::fmt::Display;
 
-use serde::{Deserialize, Serialize};
-
-#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
-
+#[derive(
+    Debug, Copy, Clone, PartialEq, Eq, Ord, PartialOrd, serde::Serialize, serde::Deserialize,
+)]
 pub enum SubGroup {
     A,
     B,
-    All,
-}
-
-impl PartialEq for SubGroup {
-    fn eq(&self, other: &Self) -> bool {
-        matches!(
-            (self, other),
-            (SubGroup::All, _)
-                | (_, SubGroup::All)
-                | (SubGroup::A, SubGroup::A)
-                | (SubGroup::B, SubGroup::B)
-        )
-    }
 }
 
 impl Display for SubGroup {
@@ -27,19 +13,18 @@ impl Display for SubGroup {
         match self {
             SubGroup::A => write!(f, "А"),
             SubGroup::B => write!(f, "Б"),
-            SubGroup::All => write!(f, "A&B"),
         }
     }
 }
 
-#[cfg(test)]
-mod test_subgroup {
-    use super::*;
+// #[cfg(test)]
+// mod test_subgroup {
+//     use super::*;
 
-    #[test]
-    fn is_all_eq() {
-        assert_eq!(SubGroup::A, SubGroup::All, "is A eq All");
-        assert_eq!(SubGroup::B, SubGroup::All, "is B eq All");
-        assert_eq!(SubGroup::All, SubGroup::All, "is All eq All");
-    }
-}
+//     #[test]
+//     fn is_all_eq() {
+//         assert_eq!(SubGroup::A, SubGroup::All, "is A eq All");
+//         assert_eq!(SubGroup::B, SubGroup::All, "is B eq All");
+//         assert_eq!(SubGroup::All, SubGroup::All, "is All eq All");
+//     }
+// }

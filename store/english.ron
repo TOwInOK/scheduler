@@ -7,7 +7,7 @@
             day: Regular(Third),
             para: Four,
             odd: false,
-            group_allowed: Second(B),
+            groups_allowed: [Second(B)],
         ),
         (
             subject: Practice(English),
@@ -15,7 +15,7 @@
             day: Regular(Third),
             para: Five,
             odd: false,
-            group_allowed: Second(B),
+            groups_allowed: [Second(B)],
         ),
     // Четверг
         (
@@ -24,7 +24,7 @@
             day: Regular(Four),
             para: First,
             odd: false,
-            group_allowed: First(A),
+            groups_allowed: [First(A)],
         ),
         (
             subject: Practice(English),
@@ -32,7 +32,7 @@
             day: Regular(Four),
             para: Second,
             odd: false,
-            group_allowed: First(A),
+            groups_allowed: [First(A)],
         ),
         (
             subject: Practice(English),
@@ -40,7 +40,7 @@
             day: Regular(Four),
             para: Second,
             odd: true,
-            group_allowed: First(B),
+            groups_allowed: [First(B)],
         ),
         (
             subject: Practice(English),
@@ -48,7 +48,7 @@
             day: Regular(Four),
             para: Second,
             odd: true,
-            group_allowed: Second(B),
+            groups_allowed: [Second(B)],
         ),
         (
             subject: Practice(English),
@@ -56,7 +56,7 @@
             day: Regular(Four),
             para: Four,
             odd: true,
-            group_allowed: First(B),
+            groups_allowed: [First(B)],
         ),
         (
             subject: Practice(English),
@@ -64,7 +64,7 @@
             day: Regular(Four),
             para: Four,
             odd: true,
-            group_allowed: First(A),
+            groups_allowed: [First(A)],
         ),
         (
             subject: Practice(English),
@@ -72,7 +72,7 @@
             day: Regular(Four),
             para: Four,
             odd: false,
-            group_allowed: First(B),
+            groups_allowed: [First(B)],
         ),
         (
             subject: Practice(English),
@@ -80,7 +80,7 @@
             day: Regular(Four),
             para: Five,
             odd: false,
-            group_allowed: Second(A),
+            groups_allowed: [Second(A)],
         ),
         // Пятница
         (
@@ -89,7 +89,7 @@
             day: Regular(Five),
             para: Third,
             odd: true,
-            group_allowed: Second(A),
+            groups_allowed: [Second(A)],
         ),
         (
             subject: Practice(English),
@@ -97,7 +97,7 @@
             day: Regular(Five),
             para: Four,
             odd: true,
-            group_allowed: Second(A),
+            groups_allowed: [Second(A)],
         ),
     ],
 )

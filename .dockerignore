@@ -7,3 +7,5 @@ debug/
 Cargo.lock
 example.ron
 .env.example
+Cargo.lock
+scheduler_store.db

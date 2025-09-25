@@ -8,7 +8,8 @@ use tracing::error;
 
 use crate::{
     cells::cell::{groups::Groups, subgroup::SubGroup},
-    telegram::{TGState, UserState, keyboard::main_commands_keyboard},
+    telegram::{TGState, keyboard::main_commands_keyboard},
+    user::User,
 };
 
 pub enum Callback {
@@ -30,41 +31,62 @@ pub async fn on_callback(callback_query: CallbackQuery, bot: Bot, state: TGState
             }
         };
 
-        if let Some(callback) = group_selection {
-            match callback {
-                Callback::SelectGroup(groups) => {
-                    {
-                        state
-                            .users
-                            .lock()
-                            .await
-                            .insert(callback_query.from.id, UserState { group: groups });
-                    }
+        if let Some(Callback::SelectGroup(groups)) = group_selection {
+            let user = User::new(callback_query.from.id as i64, groups);
 
-                    if let Err(err) = bot
-                        .delete_message(
-                            &DeleteMessageParams::builder()
-                                .chat_id(message.chat.id)
-                                .message_id(message.message_id)
-                                .build(),
-                        )
-                        .await
-                    {
-                        error!("Failed to edit message text: {:?}", err);
+            if let Err(e) = user.create_user(state.pool.clone()).await {
+                match &e {
+                    // Change group if user already exists
+                    crate::error::Error::SQL(sqlx::Error::Database(db_err)) => {
+                        if db_err.is_unique_violation() {
+                            if let Err(err) =
+                                user.update_selected_group(state.pool.clone(), groups).await
+                            {
+                                error!(
+                                    "Failed to update user's selected group (id={}): {:?}",
+                                    user.id, err
+                                );
+                            }
+                        } else {
+                            error!(
+                                "Database error while creating user (id={}): {:?}",
+                                user.id, db_err
+                            );
+                        }
                     }
-
-                    let send_message_params = SendMessageParams::builder()
-                        .chat_id(message.chat.id)
-                        .text(
-                            "Отлично! Твоя группа выбрана. Теперь можешь использовать кнопки ниже, чтобы просмотреть расписание:",
-                        )
-                        .reply_markup(ReplyMarkup::ReplyKeyboardMarkup(main_commands_keyboard()))
-                        .build();
-
-                    if let Err(error) = bot.send_message(&send_message_params).await {
-                        error!("Failed to send message: {error:?}");
-                    }
+                    _ => error!(
+                        "Unexpected error while creating user (id={}): {:?}",
+                        user.id, e
+                    ),
                 }
+            }
+
+            if let Err(err) = bot
+                .delete_message(
+                    &DeleteMessageParams::builder()
+                        .chat_id(message.chat.id)
+                        .message_id(message.message_id)
+                        .build(),
+                )
+                .await
+            {
+                error!(
+                    "Failed to delete message (chat_id={}): {:?}",
+                    message.chat.id, err
+                );
+            }
+
+            let send_message_params = SendMessageParams::builder()
+                .chat_id(message.chat.id)
+                .text("Отлично! Твоя группа выбрана. Теперь можешь использовать кнопки ниже, чтобы просмотреть расписание:")
+                .reply_markup(ReplyMarkup::ReplyKeyboardMarkup(main_commands_keyboard()))
+                .build();
+
+            if let Err(err) = bot.send_message(&send_message_params).await {
+                error!(
+                    "Failed to send confirmation message (chat_id={}): {:?}",
+                    message.chat.id, err
+                );
             }
         }
     }

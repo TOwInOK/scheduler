@@ -1,25 +1,53 @@
 use std::fmt::Display;
 
-use serde::{Deserialize, Serialize};
+use crate::cells::cell::subgroup::SubGroup;
 
-use super::subgroup::SubGroup;
-
-#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
-
+#[derive(
+    Debug, Copy, Clone, PartialEq, Eq, Ord, PartialOrd, serde::Serialize, serde::Deserialize,
+)]
 pub enum Groups {
     First(SubGroup),
     Second(SubGroup),
-    All,
+}
+// Only for SQL
+impl From<Groups> for i64 {
+    fn from(val: Groups) -> Self {
+        match val {
+            Groups::First(sub_group) => match sub_group {
+                SubGroup::A => 1,
+                SubGroup::B => 2,
+            },
+            Groups::Second(sub_group) => match sub_group {
+                SubGroup::A => 3,
+                SubGroup::B => 4,
+            },
+        }
+    }
 }
 
-impl PartialEq for Groups {
-    fn eq(&self, other: &Self) -> bool {
-        match (self, other) {
-            (Groups::All, _) => true,
-            (_, Groups::All) => true,
-            (Groups::First(s1), Groups::First(s2)) => s1 == s2,
-            (Groups::Second(s1), Groups::Second(s2)) => s1 == s2,
-            _ => false,
+impl From<i64> for Groups {
+    fn from(val: i64) -> Self {
+        match val {
+            1 => Groups::First(SubGroup::A),
+            2 => Groups::First(SubGroup::B),
+            3 => Groups::Second(SubGroup::A),
+            4 => Groups::Second(SubGroup::B),
+            _ => panic!("Invalid value for Groups"),
+        }
+    }
+}
+
+impl From<Groups> for u8 {
+    fn from(val: Groups) -> Self {
+        match val {
+            Groups::First(sub_group) => match sub_group {
+                SubGroup::A => 1,
+                SubGroup::B => 2,
+            },
+            Groups::Second(sub_group) => match sub_group {
+                SubGroup::A => 3,
+                SubGroup::B => 4,
+            },
         }
     }
 }
@@ -29,7 +57,6 @@ impl Display for Groups {
         match self {
             Groups::First(subgroup) => write!(f, "1{}", subgroup),
             Groups::Second(subgroup) => write!(f, "2{}", subgroup),
-            Groups::All => write!(f, "Все группы"),
         }
     }
 }
@@ -38,17 +65,11 @@ impl Display for Groups {
 mod tests_groups {
     use super::*;
 
-    #[test]
-    fn is_eq_all() {
-        assert_eq!(Groups::All, Groups::First(SubGroup::B));
-        assert_eq!(Groups::All, Groups::First(SubGroup::A));
-        assert_eq!(Groups::All, Groups::First(SubGroup::All));
-        assert_eq!(Groups::All, Groups::Second(SubGroup::B));
-        assert_eq!(Groups::All, Groups::Second(SubGroup::A));
-        assert_eq!(Groups::All, Groups::Second(SubGroup::All));
-        assert_eq!(Groups::First(SubGroup::All), Groups::First(SubGroup::All));
-        assert_eq!(Groups::Second(SubGroup::All), Groups::Second(SubGroup::All));
-    }
+    // #[test]
+    // fn is_eq_all() {
+    //     assert_eq!(Groups::First(SubGroup::All), Groups::First(SubGroup::All));
+    //     assert_eq!(Groups::Second(SubGroup::All), Groups::Second(SubGroup::All));
+    // }
 
     #[test]
     fn is_not_eq_at_all() {
@@ -56,6 +77,6 @@ mod tests_groups {
         assert_ne!(Groups::Second(SubGroup::B), Groups::First(SubGroup::B));
         assert_ne!(Groups::Second(SubGroup::A), Groups::First(SubGroup::A));
         assert_ne!(Groups::Second(SubGroup::A), Groups::First(SubGroup::A));
-        assert_ne!(Groups::Second(SubGroup::All), Groups::First(SubGroup::All));
+        // assert_ne!(Groups::Second(SubGroup::All), Groups::First(SubGroup::All));
     }
 }

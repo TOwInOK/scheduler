@@ -7,7 +7,7 @@
             day: Regular(First),
             para: First,
             odd: true,
-            group_allowed: Second(B),
+            groups_allowed: [Second(B)],
         ),
         (
             subject: Practice(OfficeAndTechnology),
@@ -15,7 +15,7 @@
             day: Regular(First),
             para: First,
             odd: false,
-            group_allowed: Second(B),
+            groups_allowed: [Second(B)],
         ),
         // До 02.11
         (
@@ -24,7 +24,7 @@
             day: Regular(First),
             para: Six,
             odd: false,
-            group_allowed: First(A),
+            groups_allowed: [First(A)],
         ),
         // До 02.11
         (
@@ -33,7 +33,7 @@
             day: Regular(First),
             para: Six,
             odd: true,
-            group_allowed: First(A),
+            groups_allowed: [First(A)],
         ),
     // Вторник
         (
@@ -42,7 +42,7 @@
             day: Regular(Second),
             para: Four,
             odd: false,
-            group_allowed: First(B),
+            groups_allowed: [First(B)],
         ),
         (
             subject: Practice(OfficeAndTechnology),
@@ -50,7 +50,7 @@
             day: Regular(Second),
             para: Five,
             odd: false,
-            group_allowed: First(B),
+            groups_allowed: [First(B)],
         ),
         // Та что-то для 1A, но я хз что там за число. Месяц 11 понятно, а день...
     // Среда
@@ -61,7 +61,7 @@
             day: Regular(Third),
             para: First,
             odd: true,
-            group_allowed: Second(A),
+            groups_allowed: [Second(A)],
         ),
         // c 27.10
         // (
@@ -70,7 +70,7 @@
         //     day: Regular(Third),
         //     para: Six,
         //     odd: true,
-        //     group_allowed: Second(A),
+        //     groups_allowed: [Second(A)],
         // ),
         // c 10.11
         // (
@@ -79,7 +79,7 @@
         //     day: Regular(Third),
         //     para: Six,
         //     odd: true,
-        //     group_allowed: First(A),
+        //     groups_allowed: [First(A)],
         // ),
     // Четверг
         (
@@ -88,7 +88,7 @@
             day: Regular(Four),
             para: Third,
             odd: true,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         (
             subject: Practice(OfficeAndTechnology),
@@ -96,7 +96,7 @@
             day: Regular(Four),
             para: Six,
             odd: false,
-            group_allowed: Second(A),
+            groups_allowed: [Second(A)],
         ),
     // Суббота
     ],
