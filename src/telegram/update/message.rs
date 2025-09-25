@@ -36,11 +36,11 @@ pub async fn on_message(message: Message, bot: Bot, state: TGState) {
         let token: OnMessageAction = match text.as_str() {
             "/start" => OnMessageAction::Start,
             "/schedule" => OnMessageAction::Schedule,
-            "Сегодня" | "/daytime current" => OnMessageAction::DayTime(DayTime::Current),
-            "Вчера" | "/daytime before" => OnMessageAction::DayTime(DayTime::Before),
-            "Завтра" | "/daytime next" => OnMessageAction::DayTime(DayTime::Next),
-            "Неделя" | "/daytime week" => OnMessageAction::DayTime(DayTime::Week),
-            "Месяц" | "/daytime month" => OnMessageAction::DayTime(DayTime::Month),
+            "Сегодня" | "/daytime_current" => OnMessageAction::DayTime(DayTime::Current),
+            "Вчера" | "/daytime_before" => OnMessageAction::DayTime(DayTime::Before),
+            "Завтра" | "/daytime_next" => OnMessageAction::DayTime(DayTime::Next),
+            "Неделя" | "/daytime_week" => OnMessageAction::DayTime(DayTime::Week),
+            "Месяц" | "/daytime_month" => OnMessageAction::DayTime(DayTime::Month),
             _ => OnMessageAction::Unknown,
         };
         match token {
