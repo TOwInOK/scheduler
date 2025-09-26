@@ -70,6 +70,7 @@ pub async fn set_commands(bot: &Bot) {
                 .description("Показать расписание на предыдущую неделю")
                 .build(),
         ])
+        .scope(frankenstein::types::BotCommandScope::AllPrivateChats)
         .build();
     bot.set_my_commands(&commands).await.unwrap();
 }
