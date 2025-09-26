@@ -54,15 +54,15 @@ pub async fn on_message(message: Message, bot: Bot, state: TGState) {
             "След.Завтра" | "/next_week_next" => OnMessageAction::NextWeek(DayTime::Next),
             "След.Неделя" | "/next_week_week" => OnMessageAction::NextWeek(DayTime::Week),
             "След.Месяц" | "/next_week_month" => OnMessageAction::NextWeek(DayTime::Month),
-            "Пред.Сегодня" | "/past_week_current" => {
+            "Пред.Сегодня" | "/prev_week_current" => {
                 OnMessageAction::PastWeek(DayTime::Current)
             }
-            "Пред.Вчера" | "/past_week_before" => {
+            "Пред.Вчера" | "/prev_week_before" => {
                 OnMessageAction::PastWeek(DayTime::Before)
             }
-            "Пред.Завтра" | "/past_week_next" => OnMessageAction::PastWeek(DayTime::Next),
-            "Пред.Неделя" | "/past_week_week" => OnMessageAction::PastWeek(DayTime::Week),
-            "Пред.Месяц" | "/past_week_month" => OnMessageAction::PastWeek(DayTime::Month),
+            "Пред.Завтра" | "/prev_week_next" => OnMessageAction::PastWeek(DayTime::Next),
+            "Пред.Неделя" | "/prev_week_week" => OnMessageAction::PastWeek(DayTime::Week),
+            "Пред.Месяц" | "/prev_week_month" => OnMessageAction::PastWeek(DayTime::Month),
             _ => OnMessageAction::Unknown,
         };
         match token {
@@ -197,7 +197,7 @@ pub async fn on_message(message: Message, bot: Bot, state: TGState) {
             },
             OnMessageAction::PastWeek(daytime) => match daytime {
                 DayTime::Before => {
-                    handle_daytime_past_week(&bot, &state, &message, |u, date| {
+                    handle_daytime_prev_week(&bot, &state, &message, |u, date| {
                         let date = date - Duration::days(1);
                         render_cells(
                             &state.cells.as_ref().filter_and_sort(u.selected_group, date),
@@ -208,7 +208,7 @@ pub async fn on_message(message: Message, bot: Bot, state: TGState) {
                     .await;
                 }
                 DayTime::Current => {
-                    handle_daytime_past_week(&bot, &state, &message, |u, date| {
+                    handle_daytime_prev_week(&bot, &state, &message, |u, date| {
                         render_cells(
                             &state.cells.as_ref().filter_and_sort(u.selected_group, date),
                             u.selected_group,
@@ -218,7 +218,7 @@ pub async fn on_message(message: Message, bot: Bot, state: TGState) {
                     .await;
                 }
                 DayTime::Next => {
-                    handle_daytime_past_week(&bot, &state, &message, |u, date| {
+                    handle_daytime_prev_week(&bot, &state, &message, |u, date| {
                         let date = date + Duration::days(1);
                         render_cells(
                             &state.cells.as_ref().filter_and_sort(u.selected_group, date),
@@ -229,7 +229,7 @@ pub async fn on_message(message: Message, bot: Bot, state: TGState) {
                     .await;
                 }
                 DayTime::Week => {
-                    handle_daytime_past_week(&bot, &state, &message, |u, date| {
+                    handle_daytime_prev_week(&bot, &state, &message, |u, date| {
                         render_cells_week(
                             &state.cells.as_ref().filtered_week(u.selected_group, date),
                             u.selected_group,
@@ -306,7 +306,7 @@ where
     }
 }
 
-async fn handle_daytime_past_week<F>(bot: &Bot, state: &TGState, message: &Message, f: F)
+async fn handle_daytime_prev_week<F>(bot: &Bot, state: &TGState, message: &Message, f: F)
 where
     F: FnOnce(&User, Date) -> String,
 {
