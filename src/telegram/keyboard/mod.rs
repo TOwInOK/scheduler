@@ -32,12 +32,24 @@ pub fn group_inline_keyboard() -> InlineKeyboardMarkup {
 pub fn main_commands_keyboard() -> ReplyKeyboardMarkup {
     ReplyKeyboardMarkup::builder()
         .keyboard(vec![
-            vec![KeyboardButton::builder().text("Сегодня").build()],
             vec![
                 KeyboardButton::builder().text("Вчера").build(),
                 KeyboardButton::builder().text("Завтра").build(),
+                KeyboardButton::builder().text("Сегодня").build(),
+                KeyboardButton::builder().text("Неделя").build(),
             ],
-            vec![KeyboardButton::builder().text("Неделя").build()],
+            vec![
+                KeyboardButton::builder().text("След.Вчера").build(),
+                KeyboardButton::builder().text("След.Завтра").build(),
+                KeyboardButton::builder().text("След.Сегодня").build(),
+                KeyboardButton::builder().text("След.Неделя").build(),
+            ],
+            vec![
+                KeyboardButton::builder().text("Пред.Вчера").build(),
+                KeyboardButton::builder().text("Пред.Завтра").build(),
+                KeyboardButton::builder().text("Пред.Сегодня").build(),
+                KeyboardButton::builder().text("Пред.Неделя").build(),
+            ],
         ])
         .build()
 }

@@ -25,6 +25,7 @@ pub async fn on_callback(callback_query: CallbackQuery, bot: Bot, state: TGState
             "Select-Group-1B" => Some(Callback::SelectGroup(Groups::First(SubGroup::B))),
             "Select-Group-2A" => Some(Callback::SelectGroup(Groups::Second(SubGroup::A))),
             "Select-Group-2B" => Some(Callback::SelectGroup(Groups::Second(SubGroup::B))),
+            //
             _ => {
                 error!("Received unknown callback data: {}", data);
                 None
