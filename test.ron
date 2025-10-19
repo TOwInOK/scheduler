@@ -1,0 +1,14 @@
+(
+    cells: [
+        (
+            subject: Lection(Algebra),
+            place: "TEST",
+            day: Regular(First),
+            para: Five,
+            odd: false,
+            group_allowed: All,
+            start_at: Some("2025-02-25"),
+            end_at: None,
+        ),
+    ],
+)

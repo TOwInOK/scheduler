@@ -19,7 +19,7 @@
         ),
     // Вторник
         (
-            subject: Lection(Algebra),
+            subject: Practice(Algebra),
             place: "Н-307",
             day: Regular(Second),
             para: Third,
@@ -27,7 +27,7 @@
             groups_allowed: [Second(A), Second(B)],
         ),
         (
-            subject: Lection(Algebra),
+            subject: Practice(Algebra),
             place: "Н-307",
             day: Regular(Second),
             para: Second,
@@ -36,7 +36,7 @@
         ),
     // Пятница
         (
-            subject: Lection(Algebra),
+            subject: Practice(Algebra),
             place: "Н-317",
             day: Regular(Five),
             para: Second,
@@ -44,7 +44,7 @@
             groups_allowed: [First(A), First(B)],
         ),
         (
-            subject: Lection(Algebra),
+            subject: Practice(Algebra),
             place: "Н-303",
             day: Regular(Five),
             para: Second,

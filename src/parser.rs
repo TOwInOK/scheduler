@@ -17,7 +17,7 @@ pub async fn save(path: impl AsRef<Path>, data: &Cells<'_>) -> Result<()> {
 
 #[instrument]
 pub async fn load_cells_store() -> Result<Cells<'static>> {
-    info!("Stard loading store");
+    info!("Start loading store");
     let store_names = [
         "algebra",
         "biologia",
@@ -34,11 +34,43 @@ pub async fn load_cells_store() -> Result<Cells<'static>> {
     let mut cells = Cells { cells: Vec::new() };
     for path in store_names.map(|x| format!("./store/{}.ron", x)) {
         cells.append(
-            load(&path).await.inspect_err(|x| {
-                tracing::error!("Error reading file: {}\n\tError: ->{}", path, x)
-            })?,
+            load(&path).await.inspect_err(
+                |x| tracing::error!(path = %path, error = %x, "Error of reading file"),
+            )?,
         );
     }
     info!("Load is done");
     Ok(cells)
+}
+
+#[cfg(test)]
+mod tests {
+    use arrayvec::ArrayVec;
+    use time::macros::date;
+
+    use crate::cells::cell::{Cell, subject_type::SubjectType, time::TimeCellRepiter};
+
+    use super::*;
+
+    #[tokio::test]
+    async fn check_time_format() {
+        let cell = Cell {
+            subject: SubjectType::Lection(crate::cells::cell::subject::Subject::Algebra),
+            place: "TEST",
+            day: TimeCellRepiter::Regular(crate::cells::cell::day::Day::First),
+            para: crate::cells::cell::para::Para::Five,
+            odd: false,
+            groups_allowed: ArrayVec::new(),
+            start_at: Some(date!(2025 - 02 - 25)),
+            end_at: None,
+        };
+        let cells = vec![cell];
+        let cells = Cells { cells };
+        save("./test.ron", &cells).await.unwrap();
+    }
+
+    #[tokio::test]
+    async fn parse_store() {
+        load_cells_store().await.unwrap();
+    }
 }

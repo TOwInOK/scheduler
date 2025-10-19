@@ -6,8 +6,10 @@ pub mod subject;
 pub mod subject_type;
 pub mod time;
 
-use ::time::format_description;
 use arrayvec::ArrayVec;
+
+use crate::cells::option_time_formating;
+use ::time::{Date, format_description};
 use groups::Groups;
 use para::Para;
 use serde::{Deserialize, Serialize};
@@ -21,8 +23,14 @@ pub struct Cell<'a> {
     pub place: &'a str,
     pub day: TimeCellRepiter,
     pub para: Para,
+    #[serde(default)]
     pub odd: bool,
     pub groups_allowed: ArrayVec<Groups, 4>,
+    /// Specified time diapason for cell
+    #[serde(with = "option_time_formating", default)]
+    pub start_at: Option<Date>,
+    #[serde(with = "option_time_formating", default)]
+    pub end_at: Option<Date>,
 }
 
 impl std::fmt::Display for Cell<'_> {

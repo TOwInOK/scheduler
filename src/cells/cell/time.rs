@@ -1,13 +1,13 @@
-use serde::{Deserialize, Serialize};
-use time::UtcDateTime;
-
 use super::day::Day;
+use crate::cells::time_formating;
+use serde::{Deserialize, Serialize};
+use time::Date;
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
 
 pub enum TimeCellRepiter {
     Regular(Day),
-    Once(Day, UtcDateTime),
+    Once(Day, #[serde(with = "time_formating")] Date),
 }
 impl From<time::Weekday> for Day {
     fn from(value: time::Weekday) -> Self {

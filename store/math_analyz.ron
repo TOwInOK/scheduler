@@ -18,7 +18,7 @@
             groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         (
-            subject: Lection(MathAnalyz),
+            subject: Practice(MathAnalyz),
             place: "Н-307",
             day: Regular(First),
             para: Five,
@@ -27,7 +27,7 @@
         ),
     // Вторник
         (
-            subject: Lection(MathAnalyz),
+            subject: Practice(MathAnalyz),
             place: "Н-303",
             day: Regular(Second),
             para: First,
@@ -35,7 +35,7 @@
             groups_allowed: [First(A), First(B)],
         ),
         (
-            subject: Lection(MathAnalyz),
+            subject: Practice(MathAnalyz),
             place: "Н-303",
             day: Regular(Second),
             para: First,
@@ -43,7 +43,7 @@
             groups_allowed: [Second(A), Second(B)],
         ),
         (
-            subject: Lection(MathAnalyz),
+            subject: Practice(MathAnalyz),
             place: "Н-303",
             day: Regular(Second),
             para: Second,
@@ -51,7 +51,7 @@
             groups_allowed: [First(A), First(B)],
         ),
         (
-            subject: Lection(MathAnalyz),
+            subject: Practice(MathAnalyz),
             place: "Н-303",
             day: Regular(Second),
             para: Second,
@@ -60,7 +60,7 @@
         ),
     // Пятница
         (
-            subject: Lection(MathAnalyz),
+            subject: Practice(MathAnalyz),
             place: "Н-306",
             day: Regular(Five),
             para: First,

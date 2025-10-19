@@ -59,6 +59,7 @@
             para: First,
             odd: true,
             groups_allowed: [Second(B)],
+            end_at: Some("2025-10-18"),
         ),
         // до 18.10
         (
@@ -68,6 +69,7 @@
             para: First,
             odd: false,
             groups_allowed: [Second(B)],
+            end_at: Some("2025-10-18"),
         ),
         (
             subject: Lection(Programming),
@@ -77,17 +79,31 @@
             odd: true,
             groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
+        // Для всех кроме 2Б
         (
             subject: Lection(Programming),
             place: "НК-424",
             day: Regular(Third),
             para: Second,
-            odd: false,
-            groups_allowed: [First(A), First(B), Second(A), Second(B)],
+            groups_allowed: [First(A), First(B), Second(A)],
         ),
-        // НК-303 для 2Б с 20.10
-        // НК-303 для 2Б с 20.10
-        // (да 2 пары)
+        // 2Б особенная, для них отдельно
+        (
+            subject: Lection(Programming),
+            place: "НК-303",
+            day: Regular(Third),
+            para: Second,
+            start_at: Some("2025-10-20"),
+            groups_allowed: [Second(B)],
+        ),
+        (
+            subject: Lection(Programming),
+            place: "НК-303",
+            day: Regular(Third),
+            para: Third,
+            start_at: Some("2025-10-20"),
+            groups_allowed: [Second(B)],
+        ),
     // Четверг
         (
             subject: Practice(Programming),

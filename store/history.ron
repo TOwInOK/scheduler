@@ -18,7 +18,7 @@
             groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         (
-            subject: Lection(History),
+            subject: Practice(History),
             place: "НК-414",
             day: Regular(First),
             para: Four,
@@ -26,7 +26,7 @@
             groups_allowed: [First(A), First(B)],
         ),
         (
-            subject: Lection(History),
+            subject: Practice(History),
             place: "НК-414",
             day: Regular(First),
             para: Four,
@@ -35,7 +35,7 @@
         ),
         // Четверг
         (
-            subject: Lection(History),
+            subject: Practice(History),
             place: "НК-414",
             day: Regular(Four),
             para: Four,
@@ -43,7 +43,7 @@
             groups_allowed: [Second(A), Second(B)],
         ),
         (
-            subject: Lection(History),
+            subject: Practice(History),
             place: "НК-407",
             day: Regular(Four),
             para: Four,
@@ -51,7 +51,7 @@
             groups_allowed: [Second(A), Second(B)],
         ),
         (
-            subject: Lection(History),
+            subject: Practice(History),
             place: "НК-414",
             day: Regular(Four),
             para: Five,
@@ -60,7 +60,7 @@
         ),
         // Пятница
         (
-            subject: Lection(History),
+            subject: Practice(History),
             place: "НК-414",
             day: Regular(Five),
             para: Four,

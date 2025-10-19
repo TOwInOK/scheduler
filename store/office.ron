@@ -23,8 +23,8 @@
             place: "НК-419",
             day: Regular(First),
             para: Six,
-            odd: false,
             groups_allowed: [First(A)],
+            end_at: Some("2025-02-11"),
         ),
         // До 02.11
         (
@@ -34,6 +34,7 @@
             para: Six,
             odd: true,
             groups_allowed: [First(A)],
+            end_at: Some("2025-02-11"),
         ),
     // Вторник
         (
@@ -41,7 +42,6 @@
             place: "НК-307",
             day: Regular(Second),
             para: Four,
-            odd: false,
             groups_allowed: [First(B)],
         ),
         (
@@ -49,10 +49,16 @@
             place: "НК-307",
             day: Regular(Second),
             para: Five,
-            odd: false,
             groups_allowed: [First(B)],
         ),
-        // Та что-то для 1A, но я хз что там за число. Месяц 11 понятно, а день...
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-307",
+            day: Regular(Second),
+            para: Six,
+            start_at: Some("2025-10-11"),
+            group_allowed: First(A),
+        ),
     // Среда
         // до 18.10
         (
@@ -61,26 +67,28 @@
             day: Regular(Third),
             para: First,
             odd: true,
+            end_at: Some("2025-10-18"),
+
             groups_allowed: [Second(A)],
         ),
-        // c 27.10
-        // (
-        //     subject: Practice(OfficeAndTechnology),
-        //     place: "НК-302",
-        //     day: Regular(Third),
-        //     para: Six,
-        //     odd: true,
-        //     groups_allowed: [Second(A)],
-        // ),
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-301",
+            day: Regular(Third),
+            para: Six,
+            odd: true,
+            start_at: Some("2025-10-27"),
+            groups_allowed: [Second(A)],
+        ),
         // c 10.11
-        // (
-        //     subject: Practice(OfficeAndTechnology),
-        //     place: "НК-302",
-        //     day: Regular(Third),
-        //     para: Six,
-        //     odd: true,
-        //     groups_allowed: [First(A)],
-        // ),
+        (
+            subject: Practice(OfficeAndTechnology),
+            place: "НК-307",
+            day: Regular(Third),
+            para: Six,
+            start_at: Some("2025-11-10"),
+            groups_allowed: [First(A)],
+        ),
     // Четверг
         (
             subject: Lection(OfficeAndTechnology),

@@ -5,6 +5,8 @@ use serde::{Deserialize, Serialize};
 use time::{Date, Duration, Month};
 
 pub mod cell;
+pub mod option_time_formating;
+pub mod time_formating;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Cells<'a> {
@@ -22,7 +24,21 @@ impl<'a> Cells<'a> {
             cells: self
                 .cells
                 .iter()
-                .cloned() // TODO: fix it, it's realy mess
+                .cloned()
+                .filter(|cell| {
+                    if let Some(time) = cell.start_at {
+                        date >= time
+                    } else {
+                        true
+                    }
+                })
+                .filter(|cell| {
+                    if let Some(time) = cell.end_at {
+                        date <= time
+                    } else {
+                        true
+                    }
+                })
                 .filter(|cell| cell.day == day)
                 .filter(|cell| cell.groups_allowed.contains(&group))
                 .filter(|cell| cell.subject.show(date))
@@ -87,7 +103,7 @@ pub fn is_academic_week_even(current_date: Date) -> bool {
     let academic_week_number = (current_date - first_academic_monday).whole_weeks() as u32 + 1;
 
     // Проверяем четность номера недели.
-    academic_week_number % 2 == 0
+    academic_week_number.is_multiple_of(2)
 }
 
 pub fn is_academic_week_odd(current_date: Date) -> bool {

@@ -22,16 +22,26 @@
             place: "НК-303",
             day: Regular(Third),
             para: Four,
+<<<<<<< HEAD
             odd: false,
             groups_allowed: [First(A)],
+=======
+
+            group_allowed: First(A),
+>>>>>>> 21fb554 (Add start_at and end_at to Cell. Update store.)
         ),
         (
             subject: Practice(DeviceAndFunction),
             place: "НК-303",
             day: Regular(Third),
             para: Five,
+<<<<<<< HEAD
             odd: false,
             groups_allowed: [First(A)],
+=======
+
+            group_allowed: First(A),
+>>>>>>> 21fb554 (Add start_at and end_at to Cell. Update store.)
         ),
     // Четверг
         (
