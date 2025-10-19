@@ -47,8 +47,12 @@ pub async fn load_cells_store() -> Result<Cells<'static>> {
 mod tests {
     use arrayvec::ArrayVec;
     use time::macros::date;
+    use tracing::Level;
 
-    use crate::cells::cell::{Cell, subject_type::SubjectType, time::TimeCellRepiter};
+    use crate::{
+        cells::cell::{Cell, subject_type::SubjectType, time::TimeCellRepiter},
+        init_logger,
+    };
 
     use super::*;
 
@@ -71,6 +75,7 @@ mod tests {
 
     #[tokio::test]
     async fn parse_store() {
+        init_logger(Level::INFO);
         load_cells_store().await.unwrap();
     }
 }

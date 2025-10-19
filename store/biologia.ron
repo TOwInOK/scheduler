@@ -41,7 +41,7 @@
             para: Third,
             odd: true,
             groups_allowed: [First(A), First(B), Second(A), Second(B)],
-        ),z
+        ),
     // Пятница
         (
             subject: Practice(Biologia),

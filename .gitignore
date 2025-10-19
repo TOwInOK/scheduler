@@ -2,3 +2,4 @@
 .env
 Cargo.lock
 scheduler_store.db
+test.ron

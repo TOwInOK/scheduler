@@ -18,11 +18,11 @@
             groups_allowed: [First(A), First(B)],
         ),
         (
-            subject: Lecture(Project),
+            subject: Lection(Project),
             place: "НК-323",
             day: Once(Second, "2025-11-04"),
             para: Four,
-            group_allowed: All,
+            groups_allowed: [First(A), First(B), Second(A), Second(B)],
         ),
         // Там лекция будет 04.11
     // Четверг

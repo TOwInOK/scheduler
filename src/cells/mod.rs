@@ -110,18 +110,6 @@ pub fn is_academic_week_odd(current_date: Date) -> bool {
     !is_academic_week_even(current_date)
 }
 
-// pub fn get_week_boundaries(date: OffsetDateTime) -> (OffsetDateTime, OffsetDateTime) {
-//     let sunday = date
-//         .checked_sub(Duration::days(date.weekday().number_from_monday() as i64))
-//         .unwrap();
-//     let sunday = sunday.replace_time(time::Time::MIDNIGHT);
-//     let saturday = sunday
-//         .checked_add(Duration::days(6))
-//         .unwrap()
-//         .replace_time(time::Time::from_hms(23, 59, 59).unwrap());
-//     (sunday, saturday)
-// }
-
 /// Render header
 pub fn header(date: Date, group: Groups) -> String {
     format!(
@@ -146,21 +134,32 @@ pub fn render_cells(cells: &Cells, group: Groups, date: Date) -> String {
     let mut buffer = String::new();
     buffer.push_str(&header(date, group));
     buffer.push('\n');
-    for cell in cells.cells.iter() {
-        buffer.push_str(&cell.to_string());
+    if cells.cells.is_empty() {
+        buffer.push_str("Сегодня чилим, пар нет!\n");
         buffer.push('\n');
+    } else {
+        for cell in cells.cells.iter() {
+            buffer.push_str(&cell.to_string());
+            buffer.push('\n');
+        }
     }
     buffer
 }
 
 pub fn render_cells_week(cells: &[(Date, Cells)], group: Groups) -> String {
     let mut buffer = String::new();
+
     for (date, cells) in cells {
         buffer.push_str(&header(*date, group));
         buffer.push('\n');
-        for cell in cells.cells.iter() {
-            buffer.push_str(&cell.to_string());
+        if cells.cells.is_empty() {
+            buffer.push_str("Сегодня чилим, пар нет!\n");
             buffer.push('\n');
+        } else {
+            for cell in cells.cells.iter() {
+                buffer.push_str(&cell.to_string());
+                buffer.push('\n');
+            }
         }
     }
     buffer

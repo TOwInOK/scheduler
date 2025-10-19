@@ -21,18 +21,18 @@ pub enum Subject {
 impl Display for Subject {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Subject::English => write!(f, "Английский"),
-            Subject::History => write!(f, "История"),
-            Subject::Algebra => write!(f, "Алгебра"),
+            Subject::English => write!(f, "Иностранный язык"),
+            Subject::History => write!(f, "Основы российской государтсвенности"),
+            Subject::Algebra => write!(f, "Линейная алгебра"),
             Subject::MathAnalyz => write!(f, "Математический анализ"),
-            Subject::OfficeAndTechnology => write!(f, "Офис и технологии"),
+            Subject::OfficeAndTechnology => write!(f, "Офисные приложения и технологии"),
             Subject::Sport => write!(f, "Физкультура"),
-            Subject::OSBasics => write!(f, "Основы ОС"),
-            Subject::DeviceAndFunction => write!(f, "Устройства и функции"),
-            Subject::Biologia => write!(f, "Биология"),
-            Subject::Programming => write!(f, "Программирование"),
-            Subject::Project => write!(f, "Проект"),
-            Subject::Curator => write!(f, "Куратор"),
+            Subject::OSBasics => write!(f, "Основы операционных систем"),
+            Subject::DeviceAndFunction => write!(f, "Устройства и функционирование соврем-х ИС"),
+            Subject::Biologia => write!(f, "Биологические основы"),
+            Subject::Programming => write!(f, "Основы программирования"),
+            Subject::Project => write!(f, "Проектная деятельность"),
+            Subject::Curator => write!(f, "Кураторский час"),
         }
     }
 }

@@ -57,7 +57,7 @@
             day: Regular(Second),
             para: Six,
             start_at: Some("2025-10-11"),
-            group_allowed: First(A),
+            groups_allowed: [First(A)],
         ),
     // Среда
         // до 18.10

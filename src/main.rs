@@ -19,7 +19,7 @@ use crate::{
     database::{create_default_if_not_exists, execute_pool},
     telegram::commands::set_commands,
 };
-fn init_logger(level: Level) {
+pub fn init_logger(level: Level) {
     use tracing_subscriber::FmtSubscriber;
 
     tracing::subscriber::set_global_default(
